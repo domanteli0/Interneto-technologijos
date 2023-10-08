@@ -1,0 +1,28 @@
+<movies>
+    <movie>
+        <name> Titanic </name>
+        <release_year> 1997 </release_year>
+        <actors>
+            <actor> Di Caprio </actor>
+            <actor> Kate Winslet </actor>
+        </actors>
+        <directors>
+            <director> James Cameron </director>
+        </directors>
+        <writers>
+            <writer> John Whatever </writer>
+            <writer> Some other random name </writer>
+        </writers>
+    </movie>
+    <movie>
+        <name> Inception </name>
+        <release_year> 2010 </release_year>
+        <actors>
+            <actor> Di Captio </actor>
+            <actor> Joseph Gordon Levit </actor>
+        </actors>
+        <directors>
+            <director> Cristopher Nolan </director>
+        </directors>
+    </movie>
+</movies>

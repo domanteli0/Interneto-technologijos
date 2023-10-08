@@ -1,0 +1,1 @@
+[{"kind":1,"language":"markdown","value":"# XPath Notebook\nDate: 2023-10-02     Time: 17:48:16"},{"kind":2,"language":"xpath","value":"count(/descendant::book[number(price) = /descendant::book[.//@id = \"bk103\"]/number(price)])"}]
