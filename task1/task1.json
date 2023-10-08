@@ -1,0 +1,121 @@
+{
+  "cities": [
+    {
+      "name": "New England",
+      "founded": "1907-10-03",
+      "population": 56723,
+      "size_in_km": 1.73,
+      "streets": [
+        {
+          "name": "Flat st.",
+          "material": "asphalt",
+          "buildings": [
+            {
+              "floors": 5,
+              "number": 1,
+              "no_of_inhabitants": 43,
+              "zip_code": "12345"
+            },
+            {
+              "number": 2,
+              "floors": 3,
+              "no_of_inhabitants": 31,
+              "zip_code": "12345"
+            }
+          ]
+        },
+        {
+          "name": "Green st.",
+          "material": "asphalt",
+          "buildings": {
+            "building": [
+              {
+                "number": 1,
+                "floors": 7,
+                "no_of_inhabitants": 198,
+                "zip_code": "98765"
+              },
+              {
+                "number": 2,
+                "floors": 9,
+                "no_of_inhabitants": 211,
+                "_zip_code": "98765"
+              }
+            ]
+          }
+        },
+        {
+          "buildings": {
+            "name": "Bland road",
+            "material": "unpaved",
+            "building": [
+              {
+                "number": 3,
+                "floors": 2,
+                "no_of_inhabitants": 7,
+                "zip_code": "54321"
+              },
+              {
+                "number": 4,
+                "floors": 2,
+                "no_of_inhabitants": 0,
+                "abandoned": true,
+                "zip_code": "98765"
+              },
+              {
+                "number": 5,
+                "floors": 1,
+                "no_of_inhabitants": 3,
+                "zip_code": "98765"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Old England",
+      "founded": "1909-09-03",
+      "population": "10768",
+      "size_in_km": "2.89",
+      "streets": [
+        {
+          "name": "Apple av.",
+          "material": "brick tiles",
+          "buildings": [
+            {
+              "number": 1,
+              "floors": 4,
+              "no_of_inhabitants": 43,
+              "zip_code": "22333"
+            },
+            {
+              "number": 2,
+              "floors": 3,
+              "no_of_inhabitants": 31,
+              "zip_code": "22333"
+            }
+          ]
+        },
+        {
+          "name": "Avenue st.",
+          "material": "asphalt",
+          "buildings": [
+            {
+              "number": 1,
+              "floors": 7,
+              "no_of_inhabitants": 198,
+              "zip_code": "54321"
+            },
+            {
+              "number": 2,
+              "floors": 9,
+              "no_of_inhabitants": 211,
+              "zip_code": "54321"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

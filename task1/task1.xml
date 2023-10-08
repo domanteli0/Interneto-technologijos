@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:cities xmlns = "nasdasd" xmlns:b="buildings" xmlns:c="cities">
+    <c:city name="New England">
+        <c:founded>1907-10-03</c:founded>
+        <c:population>56723</c:population>
+        <c:size_in_km>1.73</c:size_in_km>
+        <c:streets>
+            <c:street name="Flat st." material="asphalt">
+                <b:buildings>
+                    <b:building zip_code="12345">
+                        <b:floors>5</b:floors>
+                        <number>1</number>
+                        <b:no_of_inhabitants>43</b:no_of_inhabitants>
+                    </b:building>
+                    <b:building zip_code="12345">
+                        <number>2</number>
+                        <b:floors>3</b:floors>
+                        <b:no_of_inhabitants>31</b:no_of_inhabitants>
+                    </b:building>
+                </b:buildings>
+            </c:street>
+            <c:street name="Green st." material="asphalt">
+                <b:buildings>
+                    <b:building zip_code="98765">
+                        <number>1</number>
+                        <b:floors>7</b:floors>
+                        <b:no_of_inhabitants>198</b:no_of_inhabitants>
+                    </b:building>
+                    <b:building zip_code="98765">
+                        <number>2</number>
+                        <b:floors>9</b:floors>
+                        <b:no_of_inhabitants>211</b:no_of_inhabitants>
+                    </b:building>
+                </b:buildings>
+            </c:street>
+            <c:street name="Bland road" material="unpaved">
+                <b:buildings>
+                    <b:building zip_code="54321">
+                        <number>3</number>
+                        <b:floors>2</b:floors>
+                        <b:no_of_inhabitants>7</b:no_of_inhabitants>
+                    </b:building>
+                    <b:building zip_code="98765">
+                        <number>4</number>
+                        <b:floors>2</b:floors>
+                        <b:no_of_inhabitants>0</b:no_of_inhabitants>
+                        <b:abandoned/>
+                    </b:building>
+                    <b:building zip_code="98765">
+                        <number>5</number>
+                        <b:floors>1</b:floors>
+                        <b:no_of_inhabitants>3</b:no_of_inhabitants>
+                    </b:building>
+                </b:buildings>
+            </c:street>
+        </c:streets>
+    </c:city>
+    <c:city name="Old England">
+        <c:founded>1909-09-03</c:founded>
+        <c:population>10768</c:population>
+        <c:size_in_km>2.89</c:size_in_km>
+        <c:streets>
+            <c:street name="Apple av." material="brick tiles">
+                <b:buildings>
+                    <b:building zip_code="22333">
+                        <number>1</number>
+                        <b:floors>4</b:floors>
+                        <b:no_of_inhabitants>43</b:no_of_inhabitants>
+                    </b:building>
+                    <b:building zip_code="22333">
+                        <number>2</number>
+                        <b:floors>3</b:floors>
+                        <b:no_of_inhabitants>31</b:no_of_inhabitants>
+                    </b:building>
+                </b:buildings>
+            </c:street>
+            <c:street name="Avenue st." material="asphalt">
+                <b:buildings>
+                    <b:building zip_code="54321">
+                        <number>1</number>
+                        <b:floors>7</b:floors>
+                        <b:no_of_inhabitants>198</b:no_of_inhabitants>
+                    </b:building>
+                    <b:building zip_code="54321">
+                        <number>2</number>
+                        <b:floors>9</b:floors>
+                        <b:no_of_inhabitants>211</b:no_of_inhabitants>
+                    </b:building>
+                </b:buildings>
+            </c:street>
+        </c:streets>
+    </c:city>
+</c:cities>
