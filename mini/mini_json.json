@@ -1,0 +1,30 @@
+{
+  "movies": [
+    {
+      "name": "Titanic",
+      "release_year": 1997,
+      "actors": [
+        "Di Caprio",
+        "Kate Winslet"
+      ],
+      "directors": [
+        "James Cameron"
+      ],
+      "writers": [
+        "John wahtever",
+        "Some other writer"
+      ]
+    },
+    {
+      "name": "Inception",
+      "release_year": 2010,
+      "actors": [
+        "Di Caprio",
+        "John Gordon Levit"
+      ],
+      "directors": [
+        "Christopher Nolan"
+      ]
+    }
+  ]
+}
