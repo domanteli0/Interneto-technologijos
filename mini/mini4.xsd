@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="movies" type="MoviesType"></xs:element>
+
+    <xs:complexType name="ActorType">
+        <xs:sequence>
+            <xs:element name="actor" maxOccurs="unbounded" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DirectorType">
+        <xs:sequence>
+            <xs:element name="director" maxOccurs="unbounded" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WriterType">
+        <xs:sequence>
+            <xs:element name="writer" maxOccurs="unbounded" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="YearType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxInclusive value="3000"></xs:maxInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="MoviesType">
+        <xs:sequence>
+            <xs:element name="movies" maxOccurs="unbounded" type="MovieType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MovieType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"></xs:element>
+            <xs:element name="year" type="YearType"></xs:element>
+            <xs:element name="actors" type="ActorType"></xs:element>
+            <xs:element name="directors" type="DirectorType"></xs:element>
+            <xs:element name="writers" type="WriterType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
