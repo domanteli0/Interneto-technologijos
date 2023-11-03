@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="cities.xsd"?>
+<c:cities xmlns="nasdasd" xmlns:c="cities">
+    <c:city>
+        The city of new opportunities
+        <c:name>"New England"</c:name>
+        <c:founded>1907-10-03</c:founded>
+        <c:population>56723</c:population>
+        <c:size_in_km>1.73</c:size_in_km>
+        <c:streets>
+            <c:street material="asphalt">
+                <name> "Flat st." </name>
+                <c:buildings>
+                    <c:building zip_code="12345">
+                        <c:floors>5</c:floors>
+                        <c:number>1</c:number>
+                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="12345">
+                        <c:number>2</c:number>
+                        <c:floors>3</c:floors>
+                        <c:no_of_inhabitants>31</c:no_of_inhabitants>
+                    </c:building>
+                </c:buildings>
+            </c:street>
+            <c:street material="asphalt">
+                <c:name> "Green st." </c:name>
+                <c:buildings>
+                    <c:building zip_code="98765">
+                        <c:number>1</c:number>
+                        <c:floors>7</c:floors>
+                        <c:no_of_inhabitants>198</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="98765">
+                        <number>2</number>
+                        <c:floors>9</c:floors>
+                        <c:no_of_inhabitants>211</c:no_of_inhabitants>
+                    </c:building>
+                </c:buildings>
+            </c:street>
+            <c:street material="unpaved">
+                <c:name> "Bland road" </c:name>
+                <c:buildings>
+                    <c:building zip_code="54321">
+                        <c:number>3</c:number>
+                        <c:floors>2</c:floors>
+                        <c:no_of_inhabitants>7</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="98765">
+                        <c:number>4</c:number>
+                        <c:floors>2</c:floors>
+                        <c:abandoned/>
+                    </c:building>
+                    <c:building zip_code="98765">
+                        <c:number>5</c:number>
+                        <c:floors>1</c:floors>
+                        <c:no_of_inhabitants>3</c:no_of_inhabitants>
+                    </c:building>
+                </c:buildings>
+            </c:street>
+        </c:streets>
+    </c:city>
+    <c:city>
+        <name>"Old England"</name>
+        <c:founded>1909-09-03</c:founded>
+        <c:population>10768</c:population>
+        <c:size_in_km>2.89</c:size_in_km>
+        <c:streets>
+            <c:street material="brick tiles">
+                <c:name> "Apple av." </c:name>
+                <c:buildings>
+                    <c:building zip_code="12345">
+                        <c:floors>5</c:floors>
+                        <c:number>1</c:number>
+                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="22333">
+                        <c:number>1</c:number>
+                        <c:floors>4</c:floors>
+                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="22333">
+                        <c:number>2</c:number>
+                        <c:floors>3</c:floors>
+                        <c:no_of_inhabitants>31</c:no_of_inhabitants>
+                    </c:building>
+                </c:buildings>
+            </c:street>
+            <c:street material="asphalt">
+                <c:name> "Avenue st." </c:name>
+                <c:buildings>
+                    <c:building zip_code="54321">
+                        <c:number>1</c:number>
+                        <c:floors>7</c:floors>
+                        <c:no_of_inhabitants>198</c:no_of_inhabitants>
+                    </c:building>
+                    <c:building zip_code="54321">
+                        <c:number>2</c:number>
+                        <c:floors>9</c:floors>
+                        <c:no_of_inhabitants>211</c:no_of_inhabitants>
+                    </c:building>
+                </c:buildings>
+            </c:street>
+        </c:streets>
+    </c:city>
+</c:cities>

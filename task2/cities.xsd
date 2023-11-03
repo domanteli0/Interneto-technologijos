@@ -1,0 +1,90 @@
+<!--
+    Reikia parašyti XML Schema dokumentą, apibrėžiantį jūsų sukurto XML dokumento struktūrą, kuriame būtų jūsų pačių susikurti:
+
+- [X] 1. Paprastas tipas, apribojantis kokį nors Schema standartinį tipą,
+    NameType
+- [ ] 2. Prasmingas sąrašo tipas (list type).
+    Neprasmingo sąrašo tipo pavyzdys: sąrašas iš string tipo elementų. Neprasmingas todėl, kad jį galima pakeisti vienu paprastu tipu: string.
+- [ ] 3. Sudėtingi tipai su paprastu turiniu,
+    1. išvesti apribojimu (restriction) iš jūsų (ne XML Schema) bazinio tipo
+    2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
+- [ ] 4. Sudėtingi tipai su sudėtingu turiniu,
+    - [ ] 1. išvesti apribojimu (restriction) iš jūsų bazinio tipo
+    - [ ] 2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
+- [ ] 5. Pademonstruoti apribojimo principą - parodyti pavyzdį, kai apribojimo principas pažeistas, ir žinoti, kaip reikia pataisyti pavyzdį,
+- [ ] 6. Sudėtingas tipas su mišriu turiniu,
+    CityType // woopos might be not good
+- [X] 7. choice valdymo struktūra,
+    BuildingType    
+- [ ] 8. Bent viena nuoroda (keyref) į unikalumo ribojimą (unique) arba raktą (key)
+- [ ] 9. Visi jūsų susikurti tipai turi priklausyti jūsų vardų sričiai
+- [ ] 10. Parašykite kam naudojamos XSD schemos?
+-->
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.example.org/cities"
+    targetNamespace="http://www.example.org/cities"
+>
+    <xs:element name="cities" type="CitiesType"></xs:element>
+
+    <xs:complexType name="CitiesType">
+        <xs:sequence>
+            <xs:element name="cities" maxOccurs="unbounded" type="CityType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CityType" mixed="true">
+        <xs:sequence>
+            <xs:element name="name" type="NameType"></xs:element>
+            <xs:element name="founded" type="xs:date"></xs:element>
+            <xs:element name="population" type="xs:nonNegativeInteger"></xs:element>
+            <xs:element name="size_in_km" type="SizeType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BuildingType">
+        <xs:sequence>
+            <xs:element name="number" type="xs:nonNegativeInteger"></xs:element>
+            <xs:element name="floors" type="xs:nonNegativeInteger"></xs:element>
+            <xs:choice>
+                <xs:element name="no_of_inhabitants" type="xs:nonNegativeInteger"></xs:element>
+                <xs:element name="abandoned"></xs:element>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="zip_code" type="xs:nonNegativeInteger"/>
+    </xs:complexType>
+    
+    <xs:complexType name="BuildingsType">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="buildings" type="BuildingType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="StreetType">
+        <xs:sequence>
+            <xs:element name="name" type="NameType"></xs:element>
+            <xs:element name="buildings" type="BuildingsType"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="material" type="xs:string"></xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="StreetsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="streets" type="StreetType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- simple types -->
+    <xs:simpleType name="NameType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SizeType">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"></xs:minInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
