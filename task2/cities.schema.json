@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "title": "Cities",
+  "type": "object",
+  "properties": {
+    "cities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "founded": {
+            "$ref": "#/$def/date"
+          },
+          "population": {
+            "allOf": [
+              {
+                "$ref": "#/$def/nonNegativeInteger"
+              },
+              {
+                "maximum": 10000000000 // 10 billion
+              }
+            ]
+          },
+          "size": {
+            "type": "object",
+            "properties": {
+              "unit": {
+                "enum": [
+                  "km2",
+                  "mi2"
+                ]
+              },
+              "value": {
+                "$ref": "#/$def/nonNegativeFloat"
+              }
+            },
+            "required": ["unit", "value"]
+          },
+          "streets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                // oneOf
+                "material": {
+                  "type": "string"
+                },
+                "buildings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "floors": {
+                        "$ref": "#/$def/nonNegativeInteger"
+                      },
+                      "number": {
+                        "$ref": "#/$def/nonNegativeInteger"
+                      },
+                      "no_of_inhabitants": {
+                        "$ref": "#/$def/nonNegativeInteger"
+                      },
+                      "zip_code": {
+                        "$ref": "#/$def/zipCode"
+                      },
+                      "occupants": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$def/occupant"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "$def": {
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    },
+    "nonNegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nonNegativeFloat": {
+      "type": "number",
+      "minimum": 0
+    },
+    "zipCode": {
+      "type": "string",
+      "oneOf": [
+        {
+          "pattern": "^[0-9]{5}$"
+        },
+        {
+          "pattern": "^[A-Z]{2}-[0-9]{5}$"
+        }
+      ]
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$",
+      "format": "email"
+    },
+    "occupant": {
+      "anyOf": [{
+        "type": "object",
+        "properties": {
+          "person": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }, {
+        "type": "object",
+        "properties": {
+          "business": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "$ref": "#/$def/email"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }]
+    }
+  }
+}
+
+// - [X] 1. Panaudoti bent 4 skirtingi duomenų tipai
+//    string, number, integer, object, array
+// - [X] 2. Panaudotas enum raktažodis
+// - [X] 3. Panaudoti bent 4 validacijai skirti raktažodžiai
+//    pattern, required, additionalProperties, minItems
+// - [X] 4. Panaudotos bent 2 reguliarios išraikos
+//    zipCode, date
+// - [X] 5. Realizuotas schemų praplėtimas naudojantis
+//    - [X] allOf,
+//    - [X] anyOf,
+//    - [X] oneOf raktažodžiais
+// - [X] 6. Realizuotas schemų pakartotinis panaudojimas: definitions ir $ref raktažodžiai
