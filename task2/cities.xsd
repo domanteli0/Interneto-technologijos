@@ -1,35 +1,57 @@
 <!--
-    Reikia parašyti XML Schema dokumentą, apibrėžiantį jūsų sukurto XML dokumento struktūrą, kuriame būtų jūsų pačių susikurti:
+    Reikia parašyti XML Schema dokumentą, apibrėžiantį jūsų sukurto XML dokumento struktūrą, kuriame
+būtų jūsų pačių susikurti:
 
 - [X] 1. Paprastas tipas, apribojantis kokį nors Schema standartinį tipą,
     NameType
-- [ ] 2. Prasmingas sąrašo tipas (list type).
-    Neprasmingo sąrašo tipo pavyzdys: sąrašas iš string tipo elementų. Neprasmingas todėl, kad jį galima pakeisti vienu paprastu tipu: string.
-- [ ] 3. Sudėtingi tipai su paprastu turiniu,
-    1. išvesti apribojimu (restriction) iš jūsų (ne XML Schema) bazinio tipo
-    2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
-- [ ] 4. Sudėtingi tipai su sudėtingu turiniu,
-    - [ ] 1. išvesti apribojimu (restriction) iš jūsų bazinio tipo
-    - [ ] 2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
-- [ ] 5. Pademonstruoti apribojimo principą - parodyti pavyzdį, kai apribojimo principas pažeistas, ir žinoti, kaip reikia pataisyti pavyzdį,
-- [ ] 6. Sudėtingas tipas su mišriu turiniu,
-    CityType // woopos might be not good
+- [X] 2. Prasmingas sąrašo tipas (list type).
+    Neprasmingo sąrašo tipo pavyzdys: sąrašas iš string tipo elementų. Neprasmingas todėl, kad jį
+    OwnerListType
+galima pakeisti vienu paprastu tipu: string.
+- [X] 3. Sudėtingi tipai su paprastu turiniu,
+    - [X] 1. išvesti apribojimu (restriction) iš jūsų (ne XML Schema) bazinio tipo
+        PopulationType
+    - [X] 2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
+        SizeType
+- [X] 4. Sudėtingi tipai su sudėtingu turiniu,
+    - [X] 1. išvesti apribojimu (restriction) iš jūsų bazinio tipo
+        HomelessType
+    - [X] 2. išvesti praplėtimu (extension) iš jūsų bazinio tipo
+        LandlordType
+- [X] 5. Pademonstruoti apribojimo principą - parodyti pavyzdį, kai apribojimo principas pažeistas,
+    SizeType/UnitType
+ir žinoti, kaip reikia pataisyti pavyzdį,
+- [X] 6. Sudėtingas tipas su mišriu turiniu,
+    CityType
 - [X] 7. choice valdymo struktūra,
     BuildingType    
-- [ ] 8. Bent viena nuoroda (keyref) į unikalumo ribojimą (unique) arba raktą (key)
-- [ ] 9. Visi jūsų susikurti tipai turi priklausyti jūsų vardų sričiai
-- [ ] 10. Parašykite kam naudojamos XSD schemos?
+- [X] 8. Bent viena nuoroda (keyref) į unikalumo ribojimą (unique) arba raktą (key)
+- [X] 9. Visi jūsų susikurti tipai turi priklausyti jūsų vardų sričiai
+- [X] 10. Parašykite kam naudojamos XSD schemos?
+    - Duomenų validacijai
+    - Formato aprašymui ir standartizacijai
 -->
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://www.example.org/cities"
     targetNamespace="http://www.example.org/cities"
+    elementFormDefault="qualified"
 >
-    <xs:element name="cities" type="CitiesType"></xs:element>
+    <!-- elementFormDefault="qualified" -->
+    <xs:element name="cities" type="CitiesType">
+        <xs:key name="buildingKey">
+            <xs:selector xpath="*/city/streets/street/buildings/building" />
+            <xs:field xpath="@id" />
+        </xs:key>
+        <xs:keyref name="buildingKeyRef" refer="buildingKey">
+            <xs:selector xpath="*/city/people/person"></xs:selector>
+            <xs:field xpath="lives_in"></xs:field>
+        </xs:keyref>
+    </xs:element>
 
     <xs:complexType name="CitiesType">
         <xs:sequence>
-            <xs:element name="cities" maxOccurs="unbounded" type="CityType"></xs:element>
+            <xs:element name="city" maxOccurs="unbounded" type="CityType"></xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -37,8 +59,10 @@
         <xs:sequence>
             <xs:element name="name" type="NameType"></xs:element>
             <xs:element name="founded" type="xs:date"></xs:element>
-            <xs:element name="population" type="xs:nonNegativeInteger"></xs:element>
-            <xs:element name="size_in_km" type="SizeType"></xs:element>
+            <xs:element name="population" type="PopulationType"></xs:element>
+            <xs:element name="size" type="SizeType"></xs:element>
+            <xs:element name="streets" minOccurs="0" maxOccurs="1" type="StreetsType"></xs:element>
+            <xs:element name="people" minOccurs="0" maxOccurs="1" type="PeopleType"></xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -51,12 +75,13 @@
                 <xs:element name="abandoned"></xs:element>
             </xs:choice>
         </xs:sequence>
-        <xs:attribute name="zip_code" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="zip_code" type="ZipCodeType" />
+        <xs:attribute name="id" type="xs:nonNegativeInteger" use="required" />
     </xs:complexType>
-    
+
     <xs:complexType name="BuildingsType">
         <xs:sequence maxOccurs="unbounded">
-            <xs:element name="buildings" type="BuildingType"></xs:element>
+            <xs:element name="building" type="BuildingType"></xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -70,21 +95,108 @@
 
     <xs:complexType name="StreetsType">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="streets" type="StreetType"></xs:element>
+            <xs:element maxOccurs="unbounded" name="street" type="StreetType"></xs:element>
         </xs:sequence>
     </xs:complexType>
 
     <!-- simple types -->
     <xs:simpleType name="NameType">
         <xs:restriction base="xs:string">
-            <xs:maxLength value="5000"/>
+            <xs:maxLength value="5000" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="SizeType">
+    <xs:simpleType name="NonNegativeIntegerType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"></xs:minInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="UnboundedPopulationType">
+        <xs:simpleContent>
+            <xs:extension base="NonNegativeIntegerType">
+                <xs:attribute name="last_counted" type="xs:date"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="PopulationType">
+        <xs:simpleContent>
+            <xs:restriction base="UnboundedPopulationType">
+                <xs:maxInclusive value="10000000000"></xs:maxInclusive>
+                <!-- 10 billion -->
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="SizeType">
+        <xs:simpleContent>
+            <xs:extension base="NonNegativeFloatType">
+                <xs:attribute name="unit" type="xs:string" use="required"></xs:attribute>
+                <!-- <xs:attribute name="unit" type="UnitType" use="required"></xs:attribute> -->
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- <xs:simpleType name="UnitType" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="km2" />
+            <xs:enumeration value="mi2" />
+        </xs:restriction>
+    </xs:simpleType> -->
+
+    <xs:simpleType name="NonNegativeFloatType">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"></xs:minInclusive>
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="ZipCodeType">
+        <xs:restriction base="xs:string">
+            <xs:length value="5"></xs:length>
+            <xs:pattern value="[0-9]*"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="OwnerListType">
+        <xs:list itemType="xs:nonNegativeInteger"></xs:list>
+    </xs:simpleType>
+
+    <!-- other type stuff -->
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="full_name" type="xs:string"></xs:element>
+            <xs:element name="lives_in" type="xs:nonNegativeInteger" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PeopleType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="person" type="PersonType"></xs:element>
+            <xs:element maxOccurs="unbounded" name="landlord" type="LandlordType"></xs:element>
+            <xs:element maxOccurs="unbounded" name="homeless_person" type="HomelessType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LandlordType">
+        <xs:complexContent>
+            <xs:extension base="PersonType">
+                <xs:sequence>
+                    <xs:element name="owns" type="OwnerListType"></xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="HomelessType">
+        <xs:complexContent>
+            <xs:restriction base="PersonType">
+                <xs:sequence>
+                    <xs:element name="full_name" type="xs:string"></xs:element>
+                    <xs:element name="lives_in" type="xs:nonNegativeInteger" maxOccurs="0"
+                        minOccurs="0"></xs:element>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
 </xs:schema>

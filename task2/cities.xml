@@ -1,106 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="cities.xsd"?>
-<c:cities xmlns="nasdasd" xmlns:c="cities">
-    <c:city>
-        The city of new opportunities
-        <c:name>"New England"</c:name>
-        <c:founded>1907-10-03</c:founded>
-        <c:population>56723</c:population>
-        <c:size_in_km>1.73</c:size_in_km>
-        <c:streets>
-            <c:street material="asphalt">
-                <name> "Flat st." </name>
-                <c:buildings>
-                    <c:building zip_code="12345">
-                        <c:floors>5</c:floors>
-                        <c:number>1</c:number>
-                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="12345">
-                        <c:number>2</c:number>
-                        <c:floors>3</c:floors>
-                        <c:no_of_inhabitants>31</c:no_of_inhabitants>
-                    </c:building>
-                </c:buildings>
-            </c:street>
-            <c:street material="asphalt">
-                <c:name> "Green st." </c:name>
-                <c:buildings>
-                    <c:building zip_code="98765">
-                        <c:number>1</c:number>
-                        <c:floors>7</c:floors>
-                        <c:no_of_inhabitants>198</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="98765">
+<cities
+    xmlns="http://www.example.org/cities"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.org/cities ./cities.xsd"
+>
+    <city>
+        <name>"New England"</name> - The city of new opportunities founded in: <founded>1907-10-03</founded>
+        with population of <population>56723</population>. Occupying <size unit="km2">1.73</size> km
+        of land. <streets>
+            <street material="asphalt">
+                <name>Flat st.</name>
+                <buildings>
+                    <building zip_code="12345" id="0">
+                        <number>1</number>
+                        <floors>5</floors>
+                        <no_of_inhabitants>43</no_of_inhabitants>
+                    </building>
+                    <building zip_code="12345" id="0">
                         <number>2</number>
-                        <c:floors>9</c:floors>
-                        <c:no_of_inhabitants>211</c:no_of_inhabitants>
-                    </c:building>
-                </c:buildings>
-            </c:street>
-            <c:street material="unpaved">
-                <c:name> "Bland road" </c:name>
-                <c:buildings>
-                    <c:building zip_code="54321">
-                        <c:number>3</c:number>
-                        <c:floors>2</c:floors>
-                        <c:no_of_inhabitants>7</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="98765">
-                        <c:number>4</c:number>
-                        <c:floors>2</c:floors>
-                        <c:abandoned/>
-                    </c:building>
-                    <c:building zip_code="98765">
-                        <c:number>5</c:number>
-                        <c:floors>1</c:floors>
-                        <c:no_of_inhabitants>3</c:no_of_inhabitants>
-                    </c:building>
-                </c:buildings>
-            </c:street>
-        </c:streets>
-    </c:city>
-    <c:city>
+                        <floors>3</floors>
+                        <no_of_inhabitants>31</no_of_inhabitants>
+                    </building>
+                </buildings>
+            </street>
+            <street material="asphalt">
+                <name> "Green st." </name>
+                <buildings>
+                    <building zip_code="98765" id="2">
+                        <number>1</number>
+                        <floors>7</floors>
+                        <no_of_inhabitants>198</no_of_inhabitants>
+                    </building>
+                    <building zip_code="98765" id="3">
+                        <number>2</number>
+                        <floors>9</floors>
+                        <no_of_inhabitants>211</no_of_inhabitants>
+                    </building>
+                </buildings>
+            </street>
+            <street material="unpaved">
+                <name> "Bland road" </name>
+                <buildings>
+                    <building zip_code="54321" id="4">
+                        <number>3</number>
+                        <floors>2</floors>
+                        <no_of_inhabitants>7</no_of_inhabitants>
+                    </building>
+                    <building zip_code="98765" id="5">
+                        <number>4</number>
+                        <floors>2</floors>
+                        <abandoned />
+                    </building>
+                    <building zip_code="98765" id="6">
+                        <number>5</number>
+                        <floors>1</floors>
+                        <no_of_inhabitants>3</no_of_inhabitants>
+                    </building>
+                </buildings>
+            </street>
+        </streets>
+    </city>
+    <city>
         <name>"Old England"</name>
-        <c:founded>1909-09-03</c:founded>
-        <c:population>10768</c:population>
-        <c:size_in_km>2.89</c:size_in_km>
-        <c:streets>
-            <c:street material="brick tiles">
-                <c:name> "Apple av." </c:name>
-                <c:buildings>
-                    <c:building zip_code="12345">
-                        <c:floors>5</c:floors>
-                        <c:number>1</c:number>
-                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="22333">
-                        <c:number>1</c:number>
-                        <c:floors>4</c:floors>
-                        <c:no_of_inhabitants>43</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="22333">
-                        <c:number>2</c:number>
-                        <c:floors>3</c:floors>
-                        <c:no_of_inhabitants>31</c:no_of_inhabitants>
-                    </c:building>
-                </c:buildings>
-            </c:street>
-            <c:street material="asphalt">
-                <c:name> "Avenue st." </c:name>
-                <c:buildings>
-                    <c:building zip_code="54321">
-                        <c:number>1</c:number>
-                        <c:floors>7</c:floors>
-                        <c:no_of_inhabitants>198</c:no_of_inhabitants>
-                    </c:building>
-                    <c:building zip_code="54321">
-                        <c:number>2</c:number>
-                        <c:floors>9</c:floors>
-                        <c:no_of_inhabitants>211</c:no_of_inhabitants>
-                    </c:building>
-                </c:buildings>
-            </c:street>
-        </c:streets>
-    </c:city>
-</c:cities>
+        <founded>1909-09-03</founded>
+        <population last_counted="2020-10-11">
+        10768</population>
+        <size unit="mi2">2.89</size>
+        <streets>
+            <street material="brick tiles">
+                <name> "Apple av." </name>
+                <buildings>
+                    <building zip_code="12345" id="7">
+                        <number>1</number>
+                        <floors>5</floors>
+                        <no_of_inhabitants>43</no_of_inhabitants>
+                    </building>
+                    <building zip_code="22333" id="8">
+                        <number>1</number>
+                        <floors>4</floors>
+                        <no_of_inhabitants>43</no_of_inhabitants>
+                    </building>
+                    <building zip_code="22333" id="9">
+                        <number>2</number>
+                        <floors>3</floors>
+                        <no_of_inhabitants>31</no_of_inhabitants>
+                    </building>
+                </buildings>
+            </street>
+            <street material="asphalt">
+                <name> "Avenue st." </name>
+                <buildings>
+                    <building zip_code="54321" id="10">
+                        <number>1</number>
+                        <floors>7</floors>
+                        <no_of_inhabitants>198</no_of_inhabitants>
+                    </building>
+                    <building zip_code="54321" id="11">
+                        <number>2</number>
+                        <floors>9</floors>
+                        <no_of_inhabitants>211</no_of_inhabitants>
+                    </building>
+                </buildings>
+            </street>
+        </streets>
+        <people>
+            <person>
+                <full_name>Tom Thompson</full_name>
+                <lives_in>11</lives_in>
+            </person>
+            <landlord>
+                <full_name>Rich Richard</full_name>
+                <lives_in>11</lives_in>
+                <owns>10 11</owns>
+            </landlord>
+            <homeless_person>
+                <full_name>Alex Johns</full_name>
+            </homeless_person>
+        </people>
+    </city>
+</cities>
