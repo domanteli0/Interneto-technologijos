@@ -15,25 +15,26 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="http://www.wi-ski.com/wp-content/uploads/2013/02/bluesquare.png">
     <title>City index</title>
 </head>
 
 <body>
+    <p id="mobile-banner"> You are in mobile mode </p>
     <header>
         <img src="https://static.vecteezy.com/system/resources/previews/000/604/925/original/vector-blue-building-logo-architectural-construction-and-real-estate-l.jpg"
-            alt="Website logo"
-            width="200">
-        The incredible index of cities
+            alt="Website logo" width="200">
+        <h1>The incredible index of cities</h1>
+        <p> If you're unsure what a city is, you can find more info <a href="https://en.wikipedia.org/wiki/City"> here</a>
+    </p>
     </header>
 
-    <p> If you're unsure what a city is, you can find more info <a href="https://en.wikipedia.org/wiki/City"> here</a>
-    </p>
 
     <section>
-        <h1>
+        <h2>
             Table of all cities
-        </h1>
+        </h2>
 
         <table>
             <thead>
@@ -51,21 +52,21 @@
             <tbody>
                 <tr>
                     <td>Atlanta</td>
-                    <td>1803</td>
+                    <td class="year">1803</td>
                     <td>1,543,334</td>
                     <td>1,753,454</td>
                     <td>USA</td>
                 </tr>
                 <tr>
                     <td>New York</td>
-                    <td>1803</td>
+                    <td class="year">1803</td>
                     <td>8,504,239</td>
                     <td>8,804,190</td>
                     <td>USA</td>
                 </tr>
                 <tr>
                     <td>Vilnius</td>
-                    <td>1504</td>
+                    <td class="year">1504</td>
                     <td>560,345</td>
                     <td>670,804</td>
                     <td>Lithuania</td>
@@ -75,71 +76,72 @@
     </section>
 
     <section>
-        <h1>
+        <h2>
             Top ten most populous cities
-        </h1>
-        <ol>
-            <li>Tokyo </li>
+        </h2>
+        <ol class="ranking">
+            <li id="first">Tokyo </li>
             <li>Jakarta </li>
             <li>Delhi </li>
             <li>Guangzhou </li>
-            <li>Mumbai </li>
+            <li id="middle">Mumbai </li>
             <li>Manila </li>
             <li>Shanghai </li>
             <li>São Paulo </li>
             <li>Seoul </li>
-            <li>Mexico City </li>
+            <li id="last">Mexico City </li>
         </ol>
     </section>
 
-    <aside>
-        <p> Missing a city, submit a request here:</p>
-        <form action="/create_request">
-            <label for="name">Name: </label>
-            <input type="text" name="name" id="name">
-            <br>
+    <section id="requests">
+            <h2> Missing a city, submit a request here:</h2>
+            <form action="/create_request">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+                <br>
 
-            <label for="area">Area: </label>
-            <input type="number" name="area" id="area">
-            <br>
+                <label for="area">Area: </label>
+                <input type="number" name="area" id="area">
+                <br>
 
-            <input type="radio" name="unit" id="km2" value="km2" checked>
-            <label for="km2">km<sup>2</sup></label>
-            <input type="radio" name="unit" id="mi2" value="mi2">
-            <label for="mi2">mi<sup>2</sup></label>
-            <br>
+                <input type="radio" name="unit" id="km2" value="km2" checked>
+                <label for="km2">km<sup>2</sup></label>
+                <input type="radio" name="unit" id="mi2" value="mi2">
+                <label for="mi2">mi<sup>2</sup></label>
+                <br>
 
-            <label for="last_counted">Date at which the population was last counted: </label>
-            <input type="date" name="last_counted" id="last_counted">
-            <br>
+                <label for="last_counted">Date at which the population was last counted: </label>
+                <input type="date" name="last_counted" id="last_counted">
+                <br>
 
-            <label for="country">Country</label>
-            <select name="country" id="country">
-                <optgroup label="Europe ~ Baltics">
-                    <option>Estonia</option>
-                    <option>Latvia</option>
-                    <option>Lithuania</option>
-                </optgroup>
-                <optgroup label="Europe ~ Scandinavia">
-                    <option>Denmark</option>
-                    <option>Finland</option>
-                    <option>Norway</option>
-                    <option>Sweden</option>
-                </optgroup>
-                <optgroup label="North America">
-                    <option>USA</option>
-                    <option>Canada</option>
-                </optgroup>
-            </select>
-            <br>
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <optgroup label="Europe ~ Baltics">
+                        <option>Estonia</option>
+                        <option>Latvia</option>
+                        <option>Lithuania</option>
+                    </optgroup>
+                    <optgroup label="Europe ~ Scandinavia">
+                        <option>Denmark</option>
+                        <option>Finland</option>
+                        <option>Norway</option>
+                        <option>Sweden</option>
+                    </optgroup>
+                    <optgroup label="North America">
+                        <option>USA</option>
+                        <option>Canada</option>
+                    </optgroup>
+                </select>
+                <br>
 
-            <input type="checkbox" id="concent" name="concent" required>
-            <label for="concent"> I authorize Lorem Ipsum Inc. to use, distribute and process the information I provided</label>
-            <br>
+                <input type="checkbox" id="concent" name="concent" required>
+                <label for="concent"> I authorize Lorem Ipsum Inc. to use, distribute and process the information I
+                    provided</label>
+                <br>
 
-            <input type="submit" name="Submit">
-        </form>
-    </aside>
+                <input type="submit" name="Submit">
+            </form>
+    </section>
 
 </body>
 

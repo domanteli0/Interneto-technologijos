@@ -1,0 +1,122 @@
+:root {
+    --dark: #0f1f1f;
+    --darker: #000000;
+    --less-dark: #3e3e3e;
+    --light: bisque; 
+}
+
+* {
+    background-color: var(--dark);
+    font-family: "Gill Sans", sans-serif;
+    color: var(--light) !important;
+}
+
+p, table *, input, label {
+    font-size: large;
+}
+
+/* id */
+#first {
+    font-size: xx-large;
+}
+
+/* child */
+header > h1 {
+    text-align: center;
+}
+
+header, section {
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+h1, h2 {
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+
+/* descendant */
+body p {
+    background-color: var(--darker);
+}
+
+input[type="text"], input[type="number"] {
+    border: 1px solid var(--light);
+}
+
+ol.ranking {
+    font-size: larger;
+}
+
+li ~ li {
+    font-size: smaller;
+    font-style: italic;
+}
+
+/* initial */
+li#last {
+    font-style: initial;
+}
+
+/* class */
+td.year {
+    font-family: cursive;
+}
+
+/* attribute */
+[colspan] {
+    font-style: italic;
+}
+
+aside, section {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* media */
+#mobile-banner {
+    display: none;
+    vertical-align: top;
+    text-align: center;
+    margin: 20%;
+    font-size: xx-large;
+}
+
+@media screen and (max-width: 600px) {
+    #mobile-banner {
+        position: fixed;
+        display: block;
+    }
+}
+
+table {
+    border-spacing: 1pc;
+}
+
+/* inherit */
+section#requests {
+    background-color: var(--less-dark);
+    color: var(--less-dark);
+}
+
+section#requests * {
+    background-color: inherit;
+}
+
+* {
+    background-color: var(--dark);
+    font-family: "Gill Sans", sans-serif;
+    color: var(--dark);
+}
+/* 
+- [X] 5. Reikia panaudoti šiuos CSS selektorius (ir mokėti paaiškinti, kuo pirmas skiriasi nuo antro, bei ką jie visi reiškia): 
+    - [X] Įpėdinio (descendant);
+    - [X] Vaiko (child);
+    - [X] Atributo (attribute);
+    - [X] Klasės (class); 
+    - [X] ID (id);
+- [X] 5. Sukurtoje stilių lentelėje turi būti savybių paveldėjimo pavyzdys, t.y., būtina prasmingai panaudoti raktinį žodį inherit (ištrynus šį raktinį žodį, vaizdas ekrane turi pasikeisti) ir žinoti, ką jis reiškia
+- [ ] 6. Sukurtoje stilių lentelėje turi būti kaskadų mechanizmo pavyzdys, būtina prasmingai panaudoti raktinį žodį !important (ištrynus šį raktinį žodį, vaizdas ekrane turi pasikeisti), bei žinoti, ką jis reiškia ir kas yra tas kaskadų mechanizmas
+- [X] 7. Reikia panaudoti @media taisyklę, kurios pagalba naršyklė atsižvelgtų į įrenginio, kuriame yra atvaizduojamas puslapis ekrano dydį ir atitinkamai pakeistų jo išdėstymą (Media Queries Level 3) */
