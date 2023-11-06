@@ -48,7 +48,6 @@
                 "name": {
                   "type": "string"
                 },
-                // oneOf
                 "material": {
                   "type": "string"
                 },
@@ -107,7 +106,7 @@
           "pattern": "^[0-9]{5}$"
         },
         {
-          "pattern": "^[A-Z]{2}-[0-9]{5}$"
+          "pattern": "^[A-Z]{2,3}-[0-9]{5}$"
         }
       ]
     },

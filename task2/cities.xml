@@ -7,7 +7,8 @@
     <city>
         <name>"New England"</name> - The city of new opportunities founded in: <founded>1907-10-03</founded>
         with population of <population>56723</population>. Occupying <size unit="km2">1.73</size> km
-        of land. <streets>
+        of land. 
+        <streets>
             <street material="asphalt">
                 <name>Flat st.</name>
                 <buildings>
