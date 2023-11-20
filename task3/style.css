@@ -95,12 +95,12 @@ table {
     border-spacing: 1pc;
 }
 
-/* inherit */
 section#requests {
     background-color: var(--less-dark);
     color: var(--less-dark);
 }
 
+/* inherit */
 section#requests * {
     background-color: inherit;
 }
@@ -110,6 +110,11 @@ section#requests * {
     font-family: "Gill Sans", sans-serif;
     color: var(--dark);
 }
+
+/* p:hover {
+    visibility: hidden;
+} */
+
 /* 
 - [X] 5. Reikia panaudoti šiuos CSS selektorius (ir mokėti paaiškinti, kuo pirmas skiriasi nuo antro, bei ką jie visi reiškia): 
     - [X] Įpėdinio (descendant);

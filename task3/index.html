@@ -1,11 +1,12 @@
 <!-- 
+    Validator: https://validator.nu/#textarea
     Būtina pademonstruoti šių HTML elementų panaudojimą: 
-    - [X] Skyrius (TO_ASK: section?) (antraštė (TO_ASK: header?,h1,h2,h3), ne tas pats, kas section) ir paragrafas
+    - [X] Skyrius (section?) (antraštė (header?,h1,h2,h3), ne tas pats, kas section) ir paragrafas
     - [X] Paveiksliukas
     - [X] Nuoroda į kitą puslapį
     - [X] Lentelė su prasmingais panaudotais colspan ir rowspan atributais
     - [X] Numeruotas ir/ar nenumeruotas sąrašas
-    - [X] Duomenų įvedimo forma, kurioje prasmingai panaudoti bent 5 skirtingų tipų įvedimo laukai (TO_ASK: kas tas tipas?)
+    - [X] Duomenų įvedimo forma, kurioje prasmingai panaudoti bent 5 skirtingų tipų įvedimo laukai
         text, date, number, checkbox, submit, radio
     - [X] Pademonstruoti privalomų laukų validaciją.
     - [X] Sąrašo (TO_ASK: select?) (pasirinkimo) komponentas
@@ -102,12 +103,16 @@
 
                 <label for="area">Area: </label>
                 <input type="number" name="area" id="area">
-                <br>
 
                 <input type="radio" name="unit" id="km2" value="km2" checked>
                 <label for="km2">km<sup>2</sup></label>
                 <input type="radio" name="unit" id="mi2" value="mi2">
                 <label for="mi2">mi<sup>2</sup></label>
+                <br>
+                <br>
+
+                <label for="population">Population: </label>
+                <input type="number" name="population" id="population">
                 <br>
 
                 <label for="last_counted">Date at which the population was last counted: </label>
