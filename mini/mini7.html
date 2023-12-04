@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <h1> Star page </h1>
+    <form onsubmit="return starts(event)">
+        <label for="stars">No of start levels: </label>
+        <input type="number" name="stars" id="stars">
+    </form>
+    <style>
+        ul li {
+            list-style-type: none;
+        }
+    </style>
+    <div id="star-place" style="text-align: center">
+    </div>
+    <script>
+        function starts(event) {
+            let levelCount = Number(event.target.elements.stars.value);
+
+            let starTree = [...Array(levelCount).keys()]
+                .map((level) => "*".repeat(level + 1))
+                .map((str) => "<li>" + str + "</li>")
+                .join("");
+
+            let statTreeElement = "<ul>" + starTree + "</ul>";
+
+            document.getElementById("star-place").innerHTML = statTreeElement;
+            
+            return false;
+        }
+    </script>
+</body>
